@@ -6,14 +6,23 @@ public class Account {
     private String accountNumber;
     private double balance;
 
+    public Account(String accountNumber, double initialBalance) {
+        this.accountNumber = accountNumber;
+        this.balance = initialBalance;
+    }
+
     public void deposit(double amount) {
         this.balance += amount;
     }
 
-    public void withdraw(double amount) throws InsufficientFundsException {
+    public void withdraw(double amount) throws InsufficientFundsException1 {
         if (amount > this.balance) {
-            throw new InsufficientFundsException();
+           throw new InsufficientFundsException1();
         }
-        this.balance -=amount;
+        this.balance -= amount;
+    }
+
+    public double getBalance() {
+        return balance;
     }
 }
