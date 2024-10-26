@@ -1,4 +1,4 @@
-//this patron useful for Singleton
+//this patterns useful for Singleton
 public abstract class AccountFactory {
     public abstract Account creativeAccount(String accountType);
 }

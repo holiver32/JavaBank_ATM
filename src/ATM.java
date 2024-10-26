@@ -37,4 +37,23 @@ public class ATM {
         ATM atm = new ATM();
         atm.start();
     }
+    public class ATM {
+        private Map<String, Account> accounts;
+
+        public ATM() {
+            accounts = new HashMap<>();
+        }
+
+        public void performTransfer(String sourceAccountNumber, String targetAccountNumber, double amount) {
+            try {
+                accounts.get(sourceAccountNumber).transferFunds(targetAccountNumber, amount);
+                System.out.println("Transferencia exitosa");
+            } catch (InsufficientFundsException | InvalidAccountException e) {
+                System.out.println("Error: " + e.getMessage());
+            } finally {
+                // Registro de la transacción
+            }
+        }
+    }
+
 }

@@ -25,4 +25,19 @@ public class Account {
     public double getBalance() {
         return balance;
     }
+    public class Account {
+        private double balance;
+
+        public void transferFunds(String targetAccountNumber, double amount)
+                throws InsufficientFundsException, InvalidAccountException {
+            if (balance < amount) {
+                throw new InsufficientFundsException("Fondos insuficientes");
+            }
+            if (!Bank.isValidAccount(targetAccountNumber)) {
+                throw new InvalidAccountException("Cuenta destino no válida");
+            }
+            balance -= amount;
+            Bank.getAccount(targetAccountNumber).deposit(amount);
+        }
+    }
 }
